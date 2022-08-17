@@ -1,0 +1,285 @@
+﻿@model canteen_management_system.Models.food_item_master
+
+
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Free Bootstrap Admin Template : Binary Admin</title>
+    <!-- BOOTSTRAP STYLES-->
+    <link href="~/assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONTAWESOME STYLES-->
+    <link href="~/assets/css/font-awesome.css" rel="stylesheet" />
+    <!-- CUSTOM STYLES-->
+    <link href="~/assets/css/custom.css" rel="stylesheet" />
+    <!-- GOOGLE FONTS-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <style>
+        .navbar {
+            min-height: unset !important;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a style="height:100%; font-size: 20px;" class="navbar-brand" href="index.html"><i class="fa fa-laptop"></i>&nbsp;Manager</a>
+            </div>
+            <div style="color: white; padding: 15px 50px 5px 50px; float: right; font-size: 16px;">
+                &nbsp; <a href="@Url.Action("logout","login")" class="btn btn-danger square-btn-adjust btn-xs">Logout&nbsp;<i class="fa fa-sign-out"></i></a>
+                @if (Session["user_name"] != null)
+                {
+                    @Html.ActionLink("hiiii  " + Session["first_name"], null, null, null, null)
+                }
+            </div>
+        </nav>
+        <!-- /. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <style>
+                .sidebar-collapse > .nav > li > a {
+                    display: flex;
+                    align-items: center;
+                    padding: 12px 10px;
+                }
+
+                    .sidebar-collapse > .nav > li > a > i {
+                        margin: 0 10px;
+                        width: 30px;
+                        text-align: center;
+                    }
+
+                    .sidebar-collapse > .nav > li > a > span {
+                        position: absolute;
+                        right: 10px;
+                    }
+            </style>
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+                    <li class="text-center">
+                        <img style="width: 75px; margin: 10px auto;" src="~/assets/img/find_user.png" class="user-image img-responsive" />
+                    </li>
+
+                    <li>
+                        <a href="@Url.Action("Index","food_category_master")"><i class="fa fa-list-ul fa-2x"></i> Food Category<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="@Url.Action("Create","food_category_master")">Add Category</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index","food_category_master")">Delete Category</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index","food_category_master")">Details Category</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index","food_category_master")">Edit Category</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="@Url.Action("index","food_item_master")"><i class="fa fa-dot-circle-o fa-2x"></i> Food Item <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="@Url.Action("Create","food_item_master")">Add Item</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index","food_item_master")">Delete Item</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index","food_item_master")">Details Item</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index","food_item_master")">Edit Item</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="@Url.Action("Index","user_master")"><i class="fa fa-file-text-o fa-2x"></i> View All Deatails</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","payment_master")"><i class="fa fa-inr fa-2x"></i> View Payment Details</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","feedback_master")"><i class="fa fa-smile-o fa-2x"></i> View feedback</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","rating_master")"><i class="fa fa-dashboard fa-2x"></i> View Ratings</a>
+                    </li>
+
+                    <li>
+                        <a href="@Url.Action("Index","order_master")"><i class="fa fa-calendar fa-2x"></i>View Today Orders</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","order_assign_master")"><i class="fa fa-share-square-o fa-2x"></i> Order Assign </a>
+                    </li>
+
+
+                </ul>
+
+            </div>
+
+        </nav>
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper">
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+
+
+                        @using (Html.BeginForm("Edit", "food_item_master", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-horizontal">
+
+                                <hr />
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                @Html.HiddenFor(model => model.food_item_id)
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.food_cat__id, "Food Category Name", htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.DropDownList("food_cat__id", null, htmlAttributes: new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.food_cat__id, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.item_name, "Item Name", htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.item_name, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.item_name, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.item_description, "Item Description", htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.item_description, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.item_description, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.amount, "Amount", htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.amount, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.amount, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.quantity, "Quantity", htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.quantity, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.quantity, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.discount, "Discount", htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.discount, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.discount, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.image, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+
+                                        <input type="file" name="ImageFile" required />
+                                    </div>
+                                </div>
+
+                                @* <div class="form-group">
+                                                    @Html.LabelFor(model => model.create_datetime, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <div class="col-md-10">
+                                                        @Html.EditorFor(model => model.create_datetime, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.create_datetime, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                    @Html.LabelFor(model => model.update_datetime, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.update_datetime, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.update_datetime, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>*@
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.is_active, "Active", htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        <div class="checkbox">
+                                            @Html.EditorFor(model => model.is_active)
+                                            @Html.ValidationMessageFor(model => model.is_active, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.is_delete, "Delete", htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        <div class="checkbox">
+                                            @Html.EditorFor(model => model.is_delete)
+                                            @Html.ValidationMessageFor(model => model.is_delete, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        @*@Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-warning btn-xs" })
+        <input type="submit" value="Save" class="btn btn-success" />*@
+                                        <a class="btn btn-primary btn-xs" href="@Url.Action("Index","food_item_master" , null)"><i class="fa fa-arrow-left"></i>&nbsp;Back</a>
+                                        <button class="btn btn-success btn-xs" type="submit"><i class="fa fa-floppy-o"></i>&nbsp;Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                        <div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+                <!-- /. ROW  -->
+                <hr />
+
+            </div>
+            <!-- /. PAGE INNER  -->
+        </div>
+        <!-- /. PAGE WRAPPER  -->
+    </div>
+    <!-- /. WRAPPER  -->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="~/assets/js/jquery-1.10.2.js"></script>
+    <!-- BOOTSTRAP SCRIPTS -->
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script src="~/assets/js/jquery.metisMenu.js"></script>
+    <!-- CUSTOM SCRIPTS -->
+    <script src="~/assets/js/custom.js"></script>
+
+
+</body>
+</html>
+
+

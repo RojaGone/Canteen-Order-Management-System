@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "canteen_management_system", "canteen_management_system.csproj", "{C4FA1CC4-A1DD-47CE-AA25-2F7CFC7C1307}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "web_API", "..\web_API\web_API.csproj", "{E0FDA1A2-CDC4-45DE-8773-52A867DBD82D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "..\Core\Core.csproj", "{4D4E1D47-E3DC-4D5D-8649-B6DD7CE303EA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C4FA1CC4-A1DD-47CE-AA25-2F7CFC7C1307}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4FA1CC4-A1DD-47CE-AA25-2F7CFC7C1307}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4FA1CC4-A1DD-47CE-AA25-2F7CFC7C1307}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4FA1CC4-A1DD-47CE-AA25-2F7CFC7C1307}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0FDA1A2-CDC4-45DE-8773-52A867DBD82D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0FDA1A2-CDC4-45DE-8773-52A867DBD82D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0FDA1A2-CDC4-45DE-8773-52A867DBD82D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0FDA1A2-CDC4-45DE-8773-52A867DBD82D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D4E1D47-E3DC-4D5D-8649-B6DD7CE303EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D4E1D47-E3DC-4D5D-8649-B6DD7CE303EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D4E1D47-E3DC-4D5D-8649-B6DD7CE303EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D4E1D47-E3DC-4D5D-8649-B6DD7CE303EA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {03D52320-8D6C-47D7-9A5E-7CDB2DFBA3CC}
+	EndGlobalSection
+EndGlobal

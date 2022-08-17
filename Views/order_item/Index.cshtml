@@ -1,0 +1,76 @@
+﻿@model IEnumerable<canteen_management_system.Models.order_item>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.total_price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.status)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.create_datetime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.update_datetime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.is_active)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.is_delete)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.food_item_master.item_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.order_master.order_master_id)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.total_price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.create_datetime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.update_datetime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.is_active)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.is_delete)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.food_item_master.item_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.order_master.order_master_id)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.order_item_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.order_item_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.order_item_id })
+        </td>
+    </tr>
+}
+
+</table>

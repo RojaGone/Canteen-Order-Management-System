@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Core.Models.FeedbackMaster>
+
+@{
+    ViewData["Title"] = "AdminShow";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AdminShow</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Feedback)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreateDatetime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdateDatetime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsActive)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsDelete)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Feedback)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateDatetime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdateDatetime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsDelete)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.Address)
+            </td>
+            <td>
+                
+                <a asp-action="Details" asp-route-id="@item.FeedbackId">Details</a> 
+                
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

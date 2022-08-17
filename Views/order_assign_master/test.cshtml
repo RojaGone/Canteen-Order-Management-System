@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "test";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<div >
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.ajax({
+                type: "GET",
+                url: "/order_assign_master/getData",
+                data: "{}",
+                success: function (data) {
+                    var s = '<option value ="-1">please select</option>';
+                    for (var i = 0; i < data.legth; i++) {
+                        s += '<option value="' + data[i].order_master.quantity + '">' + data[i].cheif_type + '</option>';
+                    }
+                    $("#departmentsDropdown").html(s);
+                }
+            });
+        });
+
+        function getValue() {
+            var myVal = $("#departmentsDropdown").val();
+            $("#show").val(myVal);
+        }
+    </script>
+</div>
+
+<form id="myForm">
+    <label for="departmentsDropdown"><b> #departmentsDropdown</b></label>
+    <select class="form-control" onchange="getValue()" id="departmentsDropdown" name="departmentsDropdown"></select><br />
+    <input type="text" value="" id="show"/>
+</form>

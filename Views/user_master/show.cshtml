@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "show";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    Session.Remove("error");
+}
+    <h2>New password update successfully</h2>
+<div>
+    @Html.ActionLink("Back to List", "Homeindex", "Home")
+</div>
+
+

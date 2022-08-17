@@ -1,0 +1,1017 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="canteen_manege_systemModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="chef_collect_order_master">
+          <Key>
+            <PropertyRef Name="chef_collect_order_id" />
+          </Key>
+          <Property Name="chef_collect_order_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Order_assign_id" Type="int" Nullable="false" />
+          <Property Name="is_start" Type="bit" Nullable="false" />
+          <Property Name="is_done" Type="bit" Nullable="false" />
+          <Property Name="is_active" Type="bit" />
+          <Property Name="is_delete" Type="bit" />
+          <Property Name="create_datetime" Type="datetime" />
+          <Property Name="update_datetime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="feedback_master">
+          <Key>
+            <PropertyRef Name="feedback_id" />
+          </Key>
+          <Property Name="feedback_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="feedback" Type="text" Nullable="false" />
+          <Property Name="create_datetime" Type="datetime" />
+          <Property Name="update_datetime" Type="datetime" />
+          <Property Name="is_active" Type="bit" />
+          <Property Name="is_delete" Type="bit" />
+        </EntityType>
+        <EntityType Name="food_category_master">
+          <Key>
+            <PropertyRef Name="food_cat_id" />
+          </Key>
+          <Property Name="food_cat_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="food_cat_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="create_datetime" Type="datetime" />
+          <Property Name="update_datetime" Type="datetime" />
+          <Property Name="is_active" Type="bit" />
+          <Property Name="is_delete" Type="bit" />
+        </EntityType>
+        <EntityType Name="food_item_master">
+          <Key>
+            <PropertyRef Name="food_item_id" />
+          </Key>
+          <Property Name="food_item_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="food_cat__id" Type="int" Nullable="false" />
+          <Property Name="item_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="item_description" Type="text" Nullable="false" />
+          <Property Name="amount" Type="float" Nullable="false" />
+          <Property Name="quantity" Type="int" Nullable="false" />
+          <Property Name="discount" Type="int" Nullable="false" />
+          <Property Name="image" Type="text" Nullable="false" />
+          <Property Name="create_datetime" Type="datetime" />
+          <Property Name="update_datetime" Type="datetime" />
+          <Property Name="is_active" Type="bit" />
+          <Property Name="is_delete" Type="bit" />
+        </EntityType>
+        <EntityType Name="order_assign_master">
+          <Key>
+            <PropertyRef Name="Order_assign_id" />
+          </Key>
+          <Property Name="Order_assign_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="order_master_id" Type="int" Nullable="false" />
+          <Property Name="cheif_type" Type="int" />
+        </EntityType>
+        <EntityType Name="order_item">
+          <Key>
+            <PropertyRef Name="order_item_id" />
+          </Key>
+          <Property Name="order_item_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="order_master_id" Type="int" Nullable="false" />
+          <Property Name="food_item_id" Type="int" Nullable="false" />
+          <Property Name="total_price" Type="float" Nullable="false" />
+          <Property Name="status" Type="int" Nullable="false" />
+          <Property Name="create_datetime" Type="datetime" />
+          <Property Name="update_datetime" Type="datetime" />
+          <Property Name="is_active" Type="bit" />
+          <Property Name="is_delete" Type="bit" />
+        </EntityType>
+        <EntityType Name="order_master">
+          <Key>
+            <PropertyRef Name="order_master_id" />
+          </Key>
+          <Property Name="order_master_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="food_item_id" Type="int" />
+          <Property Name="total_price" Type="float" />
+          <Property Name="quantity" Type="int" />
+          <Property Name="order_deliverytime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="order_date" Type="date" Nullable="false" />
+          <Property Name="create_datetime" Type="datetime" />
+          <Property Name="update_datetime" Type="datetime" />
+          <Property Name="is_active" Type="bit" />
+          <Property Name="is_delete" Type="bit" />
+        </EntityType>
+        <EntityType Name="payment_master">
+          <Key>
+            <PropertyRef Name="payment_id" />
+          </Key>
+          <Property Name="payment_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="order_master_id" Type="int" Nullable="false" />
+          <Property Name="payment_mode" Type="int" />
+          <Property Name="create_datetime" Type="datetime" />
+          <Property Name="update_datetime" Type="datetime" />
+          <Property Name="is_active" Type="bit" />
+          <Property Name="is_delete" Type="bit" />
+        </EntityType>
+        <EntityType Name="rating_master">
+          <Key>
+            <PropertyRef Name="rating_id" />
+          </Key>
+          <Property Name="rating_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="food_item_id" Type="int" Nullable="false" />
+          <Property Name="rating" Type="int" />
+          <Property Name="create_datetime" Type="datetime" />
+          <Property Name="update_datetime" Type="datetime" />
+          <Property Name="is_active" Type="bit" />
+          <Property Name="is_delete" Type="bit" />
+        </EntityType>
+        <EntityType Name="speciality_master">
+          <Key>
+            <PropertyRef Name="speciality_id" />
+          </Key>
+          <Property Name="speciality_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="food_cat_id" Type="int" Nullable="false" />
+          <Property Name="qualification" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="experience" Type="int" Nullable="false" />
+          <Property Name="is_approed" Type="bit" Nullable="false" />
+          <Property Name="is_active" Type="bit" />
+          <Property Name="is_delete" Type="bit" />
+        </EntityType>
+        <EntityType Name="user_master">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="first_name" Type="varchar" MaxLength="50" />
+          <Property Name="middle_name" Type="varchar" MaxLength="50" />
+          <Property Name="last_name" Type="varchar" MaxLength="50" />
+          <Property Name="e_mail" Type="varchar" MaxLength="50" />
+          <Property Name="phone_no" Type="varchar" MaxLength="50" />
+          <Property Name="user_name" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+          <Property Name="address" Type="text" />
+          <Property Name="city" Type="varchar" MaxLength="50" />
+          <Property Name="district" Type="varchar" MaxLength="50" />
+          <Property Name="state" Type="varchar" MaxLength="50" />
+          <Property Name="country" Type="varchar" MaxLength="50" />
+          <Property Name="pincode" Type="int" />
+          <Property Name="create_datetime" Type="datetime" />
+          <Property Name="update_datetime" Type="datetime" />
+          <Property Name="is_active" Type="bit" />
+          <Property Name="is_delete" Type="bit" />
+          <Property Name="user_type" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_chef_collect_order_master_order_assign_master">
+          <End Role="order_assign_master" Type="Self.order_assign_master" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="chef_collect_order_master" Type="Self.chef_collect_order_master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="order_assign_master">
+              <PropertyRef Name="Order_assign_id" />
+            </Principal>
+            <Dependent Role="chef_collect_order_master">
+              <PropertyRef Name="Order_assign_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_feedback_master_user_master">
+          <End Role="user_master" Type="Self.user_master" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="feedback_master" Type="Self.feedback_master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user_master">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="feedback_master">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_food_item_master_food_category_master">
+          <End Role="food_category_master" Type="Self.food_category_master" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="food_item_master" Type="Self.food_item_master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="food_category_master">
+              <PropertyRef Name="food_cat_id" />
+            </Principal>
+            <Dependent Role="food_item_master">
+              <PropertyRef Name="food_cat__id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_order_assign_master_order_assign_master">
+          <End Role="order_assign_master" Type="Self.order_assign_master" Multiplicity="1" />
+          <End Role="order_assign_master1" Type="Self.order_assign_master" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="order_assign_master">
+              <PropertyRef Name="Order_assign_id" />
+            </Principal>
+            <Dependent Role="order_assign_master1">
+              <PropertyRef Name="Order_assign_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_order_assign_master_order_master">
+          <End Role="order_master" Type="Self.order_master" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="order_assign_master" Type="Self.order_assign_master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="order_master">
+              <PropertyRef Name="order_master_id" />
+            </Principal>
+            <Dependent Role="order_assign_master">
+              <PropertyRef Name="order_master_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_order_item_food_item_master">
+          <End Role="food_item_master" Type="Self.food_item_master" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="order_item" Type="Self.order_item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="food_item_master">
+              <PropertyRef Name="food_item_id" />
+            </Principal>
+            <Dependent Role="order_item">
+              <PropertyRef Name="food_item_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_order_item_order_master">
+          <End Role="order_master" Type="Self.order_master" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="order_item" Type="Self.order_item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="order_master">
+              <PropertyRef Name="order_master_id" />
+            </Principal>
+            <Dependent Role="order_item">
+              <PropertyRef Name="order_master_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_order_master_food_item_master">
+          <End Role="food_item_master" Type="Self.food_item_master" Multiplicity="0..1" />
+          <End Role="order_master" Type="Self.order_master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="food_item_master">
+              <PropertyRef Name="food_item_id" />
+            </Principal>
+            <Dependent Role="order_master">
+              <PropertyRef Name="food_item_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_order_master_user_master">
+          <End Role="user_master" Type="Self.user_master" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="order_master" Type="Self.order_master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user_master">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="order_master">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_payment_master_order_master">
+          <End Role="order_master" Type="Self.order_master" Multiplicity="1" />
+          <End Role="payment_master" Type="Self.payment_master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="order_master">
+              <PropertyRef Name="order_master_id" />
+            </Principal>
+            <Dependent Role="payment_master">
+              <PropertyRef Name="order_master_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_rating_master_food_item_master">
+          <End Role="food_item_master" Type="Self.food_item_master" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="rating_master" Type="Self.rating_master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="food_item_master">
+              <PropertyRef Name="food_item_id" />
+            </Principal>
+            <Dependent Role="rating_master">
+              <PropertyRef Name="food_item_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_speciality_master_food_category_master">
+          <End Role="food_category_master" Type="Self.food_category_master" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="speciality_master" Type="Self.speciality_master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="food_category_master">
+              <PropertyRef Name="food_cat_id" />
+            </Principal>
+            <Dependent Role="speciality_master">
+              <PropertyRef Name="food_cat_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_speciality_master_user_master">
+          <End Role="user_master" Type="Self.user_master" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="speciality_master" Type="Self.speciality_master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user_master">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="speciality_master">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="canteen_manege_systemModel1StoreContainer">
+          <EntitySet Name="chef_collect_order_master" EntityType="Self.chef_collect_order_master" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="feedback_master" EntityType="Self.feedback_master" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="food_category_master" EntityType="Self.food_category_master" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="food_item_master" EntityType="Self.food_item_master" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="order_assign_master" EntityType="Self.order_assign_master" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="order_item" EntityType="Self.order_item" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="order_master" EntityType="Self.order_master" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="payment_master" EntityType="Self.payment_master" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="rating_master" EntityType="Self.rating_master" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="speciality_master" EntityType="Self.speciality_master" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user_master" EntityType="Self.user_master" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_chef_collect_order_master_order_assign_master" Association="Self.FK_chef_collect_order_master_order_assign_master">
+            <End Role="order_assign_master" EntitySet="order_assign_master" />
+            <End Role="chef_collect_order_master" EntitySet="chef_collect_order_master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_feedback_master_user_master" Association="Self.FK_feedback_master_user_master">
+            <End Role="user_master" EntitySet="user_master" />
+            <End Role="feedback_master" EntitySet="feedback_master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_food_item_master_food_category_master" Association="Self.FK_food_item_master_food_category_master">
+            <End Role="food_category_master" EntitySet="food_category_master" />
+            <End Role="food_item_master" EntitySet="food_item_master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_order_assign_master_order_assign_master" Association="Self.FK_order_assign_master_order_assign_master">
+            <End Role="order_assign_master" EntitySet="order_assign_master" />
+            <End Role="order_assign_master1" EntitySet="order_assign_master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_order_assign_master_order_master" Association="Self.FK_order_assign_master_order_master">
+            <End Role="order_master" EntitySet="order_master" />
+            <End Role="order_assign_master" EntitySet="order_assign_master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_order_item_food_item_master" Association="Self.FK_order_item_food_item_master">
+            <End Role="food_item_master" EntitySet="food_item_master" />
+            <End Role="order_item" EntitySet="order_item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_order_item_order_master" Association="Self.FK_order_item_order_master">
+            <End Role="order_master" EntitySet="order_master" />
+            <End Role="order_item" EntitySet="order_item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_order_master_food_item_master" Association="Self.FK_order_master_food_item_master">
+            <End Role="food_item_master" EntitySet="food_item_master" />
+            <End Role="order_master" EntitySet="order_master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_order_master_user_master" Association="Self.FK_order_master_user_master">
+            <End Role="user_master" EntitySet="user_master" />
+            <End Role="order_master" EntitySet="order_master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_payment_master_order_master" Association="Self.FK_payment_master_order_master">
+            <End Role="order_master" EntitySet="order_master" />
+            <End Role="payment_master" EntitySet="payment_master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_rating_master_food_item_master" Association="Self.FK_rating_master_food_item_master">
+            <End Role="food_item_master" EntitySet="food_item_master" />
+            <End Role="rating_master" EntitySet="rating_master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_speciality_master_food_category_master" Association="Self.FK_speciality_master_food_category_master">
+            <End Role="food_category_master" EntitySet="food_category_master" />
+            <End Role="speciality_master" EntitySet="speciality_master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_speciality_master_user_master" Association="Self.FK_speciality_master_user_master">
+            <End Role="user_master" EntitySet="user_master" />
+            <End Role="speciality_master" EntitySet="speciality_master" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="canteen_manege_systemModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="chef_collect_order_master">
+          <Key>
+            <PropertyRef Name="chef_collect_order_id" />
+          </Key>
+          <Property Name="chef_collect_order_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Order_assign_id" Type="Int32" Nullable="false" />
+          <Property Name="is_start" Type="Boolean" Nullable="false" />
+          <Property Name="is_done" Type="Boolean" Nullable="false" />
+          <Property Name="is_active" Type="Boolean" />
+          <Property Name="is_delete" Type="Boolean" />
+          <Property Name="create_datetime" Type="DateTime" Precision="3" />
+          <Property Name="update_datetime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="order_assign_master" Relationship="Self.FK_chef_collect_order_master_order_assign_master" FromRole="chef_collect_order_master" ToRole="order_assign_master" />
+        </EntityType>
+        <EntityType Name="feedback_master">
+          <Key>
+            <PropertyRef Name="feedback_id" />
+          </Key>
+          <Property Name="feedback_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="feedback" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_datetime" Type="DateTime" Precision="3" />
+          <Property Name="update_datetime" Type="DateTime" Precision="3" />
+          <Property Name="is_active" Type="Boolean" />
+          <Property Name="is_delete" Type="Boolean" />
+          <NavigationProperty Name="user_master" Relationship="Self.FK_feedback_master_user_master" FromRole="feedback_master" ToRole="user_master" />
+        </EntityType>
+        <EntityType Name="food_category_master">
+          <Key>
+            <PropertyRef Name="food_cat_id" />
+          </Key>
+          <Property Name="food_cat_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="food_cat_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_datetime" Type="DateTime" Precision="3" />
+          <Property Name="update_datetime" Type="DateTime" Precision="3" />
+          <Property Name="is_active" Type="Boolean" />
+          <Property Name="is_delete" Type="Boolean" />
+          <NavigationProperty Name="food_item_master" Relationship="Self.FK_food_item_master_food_category_master" FromRole="food_category_master" ToRole="food_item_master" />
+          <NavigationProperty Name="speciality_master" Relationship="Self.FK_speciality_master_food_category_master" FromRole="food_category_master" ToRole="speciality_master" />
+        </EntityType>
+        <EntityType Name="food_item_master">
+          <Key>
+            <PropertyRef Name="food_item_id" />
+          </Key>
+          <Property Name="food_item_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="food_cat__id" Type="Int32" Nullable="false" />
+          <Property Name="item_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="item_description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="amount" Type="Double" Nullable="false" />
+          <Property Name="quantity" Type="Int32" Nullable="false" />
+          <Property Name="discount" Type="Int32" Nullable="false" />
+          <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_datetime" Type="DateTime" Precision="3" />
+          <Property Name="update_datetime" Type="DateTime" Precision="3" />
+          <Property Name="is_active" Type="Boolean" />
+          <Property Name="is_delete" Type="Boolean" />
+          <NavigationProperty Name="food_category_master" Relationship="Self.FK_food_item_master_food_category_master" FromRole="food_item_master" ToRole="food_category_master" />
+          <NavigationProperty Name="order_item" Relationship="Self.FK_order_item_food_item_master" FromRole="food_item_master" ToRole="order_item" />
+          <NavigationProperty Name="order_master" Relationship="Self.FK_order_master_food_item_master" FromRole="food_item_master" ToRole="order_master" />
+          <NavigationProperty Name="rating_master" Relationship="Self.FK_rating_master_food_item_master" FromRole="food_item_master" ToRole="rating_master" />
+        </EntityType>
+        <EntityType Name="order_assign_master">
+          <Key>
+            <PropertyRef Name="Order_assign_id" />
+          </Key>
+          <Property Name="Order_assign_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="order_master_id" Type="Int32" Nullable="false" />
+          <Property Name="cheif_type" Type="Int32" />
+          <NavigationProperty Name="chef_collect_order_master" Relationship="Self.FK_chef_collect_order_master_order_assign_master" FromRole="order_assign_master" ToRole="chef_collect_order_master" />
+          <NavigationProperty Name="order_assign_master1" Relationship="Self.FK_order_assign_master_order_assign_master" FromRole="order_assign_master" ToRole="order_assign_master1" />
+          <NavigationProperty Name="order_assign_master2" Relationship="Self.FK_order_assign_master_order_assign_master" FromRole="order_assign_master1" ToRole="order_assign_master" />
+          <NavigationProperty Name="order_master" Relationship="Self.FK_order_assign_master_order_master" FromRole="order_assign_master" ToRole="order_master" />
+        </EntityType>
+        <EntityType Name="order_item">
+          <Key>
+            <PropertyRef Name="order_item_id" />
+          </Key>
+          <Property Name="order_item_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="order_master_id" Type="Int32" Nullable="false" />
+          <Property Name="food_item_id" Type="Int32" Nullable="false" />
+          <Property Name="total_price" Type="Double" Nullable="false" />
+          <Property Name="status" Type="Int32" Nullable="false" />
+          <Property Name="create_datetime" Type="DateTime" Precision="3" />
+          <Property Name="update_datetime" Type="DateTime" Precision="3" />
+          <Property Name="is_active" Type="Boolean" />
+          <Property Name="is_delete" Type="Boolean" />
+          <NavigationProperty Name="food_item_master" Relationship="Self.FK_order_item_food_item_master" FromRole="order_item" ToRole="food_item_master" />
+          <NavigationProperty Name="order_master" Relationship="Self.FK_order_item_order_master" FromRole="order_item" ToRole="order_master" />
+        </EntityType>
+        <EntityType Name="order_master">
+          <Key>
+            <PropertyRef Name="order_master_id" />
+          </Key>
+          <Property Name="order_master_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="food_item_id" Type="Int32" />
+          <Property Name="total_price" Type="Double" />
+          <Property Name="quantity" Type="Int32" />
+          <Property Name="order_deliverytime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="order_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="create_datetime" Type="DateTime" Precision="3" />
+          <Property Name="update_datetime" Type="DateTime" Precision="3" />
+          <Property Name="is_active" Type="Boolean" />
+          <Property Name="is_delete" Type="Boolean" />
+          <NavigationProperty Name="food_item_master" Relationship="Self.FK_order_master_food_item_master" FromRole="order_master" ToRole="food_item_master" />
+          <NavigationProperty Name="order_assign_master" Relationship="Self.FK_order_assign_master_order_master" FromRole="order_master" ToRole="order_assign_master" />
+          <NavigationProperty Name="order_item" Relationship="Self.FK_order_item_order_master" FromRole="order_master" ToRole="order_item" />
+          <NavigationProperty Name="user_master" Relationship="Self.FK_order_master_user_master" FromRole="order_master" ToRole="user_master" />
+          <NavigationProperty Name="payment_master" Relationship="Self.FK_payment_master_order_master" FromRole="order_master" ToRole="payment_master" />
+        </EntityType>
+        <EntityType Name="payment_master">
+          <Key>
+            <PropertyRef Name="payment_id" />
+          </Key>
+          <Property Name="payment_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="order_master_id" Type="Int32" Nullable="false" />
+          <Property Name="payment_mode" Type="Int32" />
+          <Property Name="create_datetime" Type="DateTime" Precision="3" />
+          <Property Name="update_datetime" Type="DateTime" Precision="3" />
+          <Property Name="is_active" Type="Boolean" />
+          <Property Name="is_delete" Type="Boolean" />
+          <NavigationProperty Name="order_master" Relationship="Self.FK_payment_master_order_master" FromRole="payment_master" ToRole="order_master" />
+        </EntityType>
+        <EntityType Name="rating_master">
+          <Key>
+            <PropertyRef Name="rating_id" />
+          </Key>
+          <Property Name="rating_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="food_item_id" Type="Int32" Nullable="false" />
+          <Property Name="rating" Type="Int32" />
+          <Property Name="create_datetime" Type="DateTime" Precision="3" />
+          <Property Name="update_datetime" Type="DateTime" Precision="3" />
+          <Property Name="is_active" Type="Boolean" />
+          <Property Name="is_delete" Type="Boolean" />
+          <NavigationProperty Name="food_item_master" Relationship="Self.FK_rating_master_food_item_master" FromRole="rating_master" ToRole="food_item_master" />
+        </EntityType>
+        <EntityType Name="speciality_master">
+          <Key>
+            <PropertyRef Name="speciality_id" />
+          </Key>
+          <Property Name="speciality_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="food_cat_id" Type="Int32" Nullable="false" />
+          <Property Name="qualification" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="experience" Type="Int32" Nullable="false" />
+          <Property Name="is_approed" Type="Boolean" Nullable="false" />
+          <Property Name="is_active" Type="Boolean" />
+          <Property Name="is_delete" Type="Boolean" />
+          <NavigationProperty Name="food_category_master" Relationship="Self.FK_speciality_master_food_category_master" FromRole="speciality_master" ToRole="food_category_master" />
+          <NavigationProperty Name="user_master" Relationship="Self.FK_speciality_master_user_master" FromRole="speciality_master" ToRole="user_master" />
+        </EntityType>
+        <EntityType Name="user_master">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="first_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="middle_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="e_mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="phone_no" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="user_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="district" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="state" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pincode" Type="Int32" />
+          <Property Name="create_datetime" Type="DateTime" Precision="3" />
+          <Property Name="update_datetime" Type="DateTime" Precision="3" />
+          <Property Name="is_active" Type="Boolean" />
+          <Property Name="is_delete" Type="Boolean" />
+          <Property Name="user_type" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="feedback_master" Relationship="Self.FK_feedback_master_user_master" FromRole="user_master" ToRole="feedback_master" />
+          <NavigationProperty Name="order_master" Relationship="Self.FK_order_master_user_master" FromRole="user_master" ToRole="order_master" />
+          <NavigationProperty Name="speciality_master" Relationship="Self.FK_speciality_master_user_master" FromRole="user_master" ToRole="speciality_master" />
+        </EntityType>
+        <Association Name="FK_chef_collect_order_master_order_assign_master">
+          <End Role="order_assign_master" Type="Self.order_assign_master" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="chef_collect_order_master" Type="Self.chef_collect_order_master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="order_assign_master">
+              <PropertyRef Name="Order_assign_id" />
+            </Principal>
+            <Dependent Role="chef_collect_order_master">
+              <PropertyRef Name="Order_assign_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_feedback_master_user_master">
+          <End Role="user_master" Type="Self.user_master" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="feedback_master" Type="Self.feedback_master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user_master">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="feedback_master">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_food_item_master_food_category_master">
+          <End Role="food_category_master" Type="Self.food_category_master" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="food_item_master" Type="Self.food_item_master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="food_category_master">
+              <PropertyRef Name="food_cat_id" />
+            </Principal>
+            <Dependent Role="food_item_master">
+              <PropertyRef Name="food_cat__id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_speciality_master_food_category_master">
+          <End Role="food_category_master" Type="Self.food_category_master" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="speciality_master" Type="Self.speciality_master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="food_category_master">
+              <PropertyRef Name="food_cat_id" />
+            </Principal>
+            <Dependent Role="speciality_master">
+              <PropertyRef Name="food_cat_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_order_item_food_item_master">
+          <End Role="food_item_master" Type="Self.food_item_master" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="order_item" Type="Self.order_item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="food_item_master">
+              <PropertyRef Name="food_item_id" />
+            </Principal>
+            <Dependent Role="order_item">
+              <PropertyRef Name="food_item_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_order_master_food_item_master">
+          <End Role="food_item_master" Type="Self.food_item_master" Multiplicity="0..1" />
+          <End Role="order_master" Type="Self.order_master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="food_item_master">
+              <PropertyRef Name="food_item_id" />
+            </Principal>
+            <Dependent Role="order_master">
+              <PropertyRef Name="food_item_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_rating_master_food_item_master">
+          <End Role="food_item_master" Type="Self.food_item_master" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="rating_master" Type="Self.rating_master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="food_item_master">
+              <PropertyRef Name="food_item_id" />
+            </Principal>
+            <Dependent Role="rating_master">
+              <PropertyRef Name="food_item_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_order_assign_master_order_assign_master">
+          <End Role="order_assign_master" Type="Self.order_assign_master" Multiplicity="1" />
+          <End Role="order_assign_master1" Type="Self.order_assign_master" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="order_assign_master">
+              <PropertyRef Name="Order_assign_id" />
+            </Principal>
+            <Dependent Role="order_assign_master1">
+              <PropertyRef Name="Order_assign_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_order_assign_master_order_master">
+          <End Role="order_master" Type="Self.order_master" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="order_assign_master" Type="Self.order_assign_master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="order_master">
+              <PropertyRef Name="order_master_id" />
+            </Principal>
+            <Dependent Role="order_assign_master">
+              <PropertyRef Name="order_master_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_order_item_order_master">
+          <End Role="order_master" Type="Self.order_master" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="order_item" Type="Self.order_item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="order_master">
+              <PropertyRef Name="order_master_id" />
+            </Principal>
+            <Dependent Role="order_item">
+              <PropertyRef Name="order_master_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_order_master_user_master">
+          <End Role="user_master" Type="Self.user_master" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="order_master" Type="Self.order_master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user_master">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="order_master">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_payment_master_order_master">
+          <End Role="order_master" Type="Self.order_master" Multiplicity="1" />
+          <End Role="payment_master" Type="Self.payment_master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="order_master">
+              <PropertyRef Name="order_master_id" />
+            </Principal>
+            <Dependent Role="payment_master">
+              <PropertyRef Name="order_master_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_speciality_master_user_master">
+          <End Role="user_master" Type="Self.user_master" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="speciality_master" Type="Self.speciality_master" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user_master">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="speciality_master">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="canteen_manege_systemEntities11" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="chef_collect_order_master" EntityType="Self.chef_collect_order_master" />
+          <EntitySet Name="feedback_master" EntityType="Self.feedback_master" />
+          <EntitySet Name="food_category_master" EntityType="Self.food_category_master" />
+          <EntitySet Name="food_item_master" EntityType="Self.food_item_master" />
+          <EntitySet Name="order_assign_master" EntityType="Self.order_assign_master" />
+          <EntitySet Name="order_item" EntityType="Self.order_item" />
+          <EntitySet Name="order_master" EntityType="Self.order_master" />
+          <EntitySet Name="payment_master" EntityType="Self.payment_master" />
+          <EntitySet Name="rating_master" EntityType="Self.rating_master" />
+          <EntitySet Name="speciality_master" EntityType="Self.speciality_master" />
+          <EntitySet Name="user_master" EntityType="Self.user_master" />
+          <AssociationSet Name="FK_chef_collect_order_master_order_assign_master" Association="Self.FK_chef_collect_order_master_order_assign_master">
+            <End Role="order_assign_master" EntitySet="order_assign_master" />
+            <End Role="chef_collect_order_master" EntitySet="chef_collect_order_master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_feedback_master_user_master" Association="Self.FK_feedback_master_user_master">
+            <End Role="user_master" EntitySet="user_master" />
+            <End Role="feedback_master" EntitySet="feedback_master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_food_item_master_food_category_master" Association="Self.FK_food_item_master_food_category_master">
+            <End Role="food_category_master" EntitySet="food_category_master" />
+            <End Role="food_item_master" EntitySet="food_item_master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_speciality_master_food_category_master" Association="Self.FK_speciality_master_food_category_master">
+            <End Role="food_category_master" EntitySet="food_category_master" />
+            <End Role="speciality_master" EntitySet="speciality_master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_order_item_food_item_master" Association="Self.FK_order_item_food_item_master">
+            <End Role="food_item_master" EntitySet="food_item_master" />
+            <End Role="order_item" EntitySet="order_item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_order_master_food_item_master" Association="Self.FK_order_master_food_item_master">
+            <End Role="food_item_master" EntitySet="food_item_master" />
+            <End Role="order_master" EntitySet="order_master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_rating_master_food_item_master" Association="Self.FK_rating_master_food_item_master">
+            <End Role="food_item_master" EntitySet="food_item_master" />
+            <End Role="rating_master" EntitySet="rating_master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_order_assign_master_order_assign_master" Association="Self.FK_order_assign_master_order_assign_master">
+            <End Role="order_assign_master" EntitySet="order_assign_master" />
+            <End Role="order_assign_master1" EntitySet="order_assign_master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_order_assign_master_order_master" Association="Self.FK_order_assign_master_order_master">
+            <End Role="order_master" EntitySet="order_master" />
+            <End Role="order_assign_master" EntitySet="order_assign_master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_order_item_order_master" Association="Self.FK_order_item_order_master">
+            <End Role="order_master" EntitySet="order_master" />
+            <End Role="order_item" EntitySet="order_item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_order_master_user_master" Association="Self.FK_order_master_user_master">
+            <End Role="user_master" EntitySet="user_master" />
+            <End Role="order_master" EntitySet="order_master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_payment_master_order_master" Association="Self.FK_payment_master_order_master">
+            <End Role="order_master" EntitySet="order_master" />
+            <End Role="payment_master" EntitySet="payment_master" />
+          </AssociationSet>
+          <AssociationSet Name="FK_speciality_master_user_master" Association="Self.FK_speciality_master_user_master">
+            <End Role="user_master" EntitySet="user_master" />
+            <End Role="speciality_master" EntitySet="speciality_master" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="canteen_manege_systemModel1StoreContainer" CdmEntityContainer="canteen_manege_systemEntities11">
+          <EntitySetMapping Name="chef_collect_order_master">
+            <EntityTypeMapping TypeName="canteen_manege_systemModel1.chef_collect_order_master">
+              <MappingFragment StoreEntitySet="chef_collect_order_master">
+                <ScalarProperty Name="chef_collect_order_id" ColumnName="chef_collect_order_id" />
+                <ScalarProperty Name="Order_assign_id" ColumnName="Order_assign_id" />
+                <ScalarProperty Name="is_start" ColumnName="is_start" />
+                <ScalarProperty Name="is_done" ColumnName="is_done" />
+                <ScalarProperty Name="is_active" ColumnName="is_active" />
+                <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+                <ScalarProperty Name="create_datetime" ColumnName="create_datetime" />
+                <ScalarProperty Name="update_datetime" ColumnName="update_datetime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="feedback_master">
+            <EntityTypeMapping TypeName="canteen_manege_systemModel1.feedback_master">
+              <MappingFragment StoreEntitySet="feedback_master">
+                <ScalarProperty Name="feedback_id" ColumnName="feedback_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="feedback" ColumnName="feedback" />
+                <ScalarProperty Name="create_datetime" ColumnName="create_datetime" />
+                <ScalarProperty Name="update_datetime" ColumnName="update_datetime" />
+                <ScalarProperty Name="is_active" ColumnName="is_active" />
+                <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="food_category_master">
+            <EntityTypeMapping TypeName="canteen_manege_systemModel1.food_category_master">
+              <MappingFragment StoreEntitySet="food_category_master">
+                <ScalarProperty Name="food_cat_id" ColumnName="food_cat_id" />
+                <ScalarProperty Name="food_cat_name" ColumnName="food_cat_name" />
+                <ScalarProperty Name="create_datetime" ColumnName="create_datetime" />
+                <ScalarProperty Name="update_datetime" ColumnName="update_datetime" />
+                <ScalarProperty Name="is_active" ColumnName="is_active" />
+                <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="food_item_master">
+            <EntityTypeMapping TypeName="canteen_manege_systemModel1.food_item_master">
+              <MappingFragment StoreEntitySet="food_item_master">
+                <ScalarProperty Name="food_item_id" ColumnName="food_item_id" />
+                <ScalarProperty Name="food_cat__id" ColumnName="food_cat__id" />
+                <ScalarProperty Name="item_name" ColumnName="item_name" />
+                <ScalarProperty Name="item_description" ColumnName="item_description" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="discount" ColumnName="discount" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="create_datetime" ColumnName="create_datetime" />
+                <ScalarProperty Name="update_datetime" ColumnName="update_datetime" />
+                <ScalarProperty Name="is_active" ColumnName="is_active" />
+                <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="order_assign_master">
+            <EntityTypeMapping TypeName="canteen_manege_systemModel1.order_assign_master">
+              <MappingFragment StoreEntitySet="order_assign_master">
+                <ScalarProperty Name="Order_assign_id" ColumnName="Order_assign_id" />
+                <ScalarProperty Name="order_master_id" ColumnName="order_master_id" />
+                <ScalarProperty Name="cheif_type" ColumnName="cheif_type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="order_item">
+            <EntityTypeMapping TypeName="canteen_manege_systemModel1.order_item">
+              <MappingFragment StoreEntitySet="order_item">
+                <ScalarProperty Name="order_item_id" ColumnName="order_item_id" />
+                <ScalarProperty Name="order_master_id" ColumnName="order_master_id" />
+                <ScalarProperty Name="food_item_id" ColumnName="food_item_id" />
+                <ScalarProperty Name="total_price" ColumnName="total_price" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="create_datetime" ColumnName="create_datetime" />
+                <ScalarProperty Name="update_datetime" ColumnName="update_datetime" />
+                <ScalarProperty Name="is_active" ColumnName="is_active" />
+                <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="order_master">
+            <EntityTypeMapping TypeName="canteen_manege_systemModel1.order_master">
+              <MappingFragment StoreEntitySet="order_master">
+                <ScalarProperty Name="order_master_id" ColumnName="order_master_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="food_item_id" ColumnName="food_item_id" />
+                <ScalarProperty Name="total_price" ColumnName="total_price" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="order_deliverytime" ColumnName="order_deliverytime" />
+                <ScalarProperty Name="order_date" ColumnName="order_date" />
+                <ScalarProperty Name="create_datetime" ColumnName="create_datetime" />
+                <ScalarProperty Name="update_datetime" ColumnName="update_datetime" />
+                <ScalarProperty Name="is_active" ColumnName="is_active" />
+                <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="payment_master">
+            <EntityTypeMapping TypeName="canteen_manege_systemModel1.payment_master">
+              <MappingFragment StoreEntitySet="payment_master">
+                <ScalarProperty Name="payment_id" ColumnName="payment_id" />
+                <ScalarProperty Name="order_master_id" ColumnName="order_master_id" />
+                <ScalarProperty Name="payment_mode" ColumnName="payment_mode" />
+                <ScalarProperty Name="create_datetime" ColumnName="create_datetime" />
+                <ScalarProperty Name="update_datetime" ColumnName="update_datetime" />
+                <ScalarProperty Name="is_active" ColumnName="is_active" />
+                <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rating_master">
+            <EntityTypeMapping TypeName="canteen_manege_systemModel1.rating_master">
+              <MappingFragment StoreEntitySet="rating_master">
+                <ScalarProperty Name="rating_id" ColumnName="rating_id" />
+                <ScalarProperty Name="food_item_id" ColumnName="food_item_id" />
+                <ScalarProperty Name="rating" ColumnName="rating" />
+                <ScalarProperty Name="create_datetime" ColumnName="create_datetime" />
+                <ScalarProperty Name="update_datetime" ColumnName="update_datetime" />
+                <ScalarProperty Name="is_active" ColumnName="is_active" />
+                <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="speciality_master">
+            <EntityTypeMapping TypeName="canteen_manege_systemModel1.speciality_master">
+              <MappingFragment StoreEntitySet="speciality_master">
+                <ScalarProperty Name="speciality_id" ColumnName="speciality_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="food_cat_id" ColumnName="food_cat_id" />
+                <ScalarProperty Name="qualification" ColumnName="qualification" />
+                <ScalarProperty Name="experience" ColumnName="experience" />
+                <ScalarProperty Name="is_approed" ColumnName="is_approed" />
+                <ScalarProperty Name="is_active" ColumnName="is_active" />
+                <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_master">
+            <EntityTypeMapping TypeName="canteen_manege_systemModel1.user_master">
+              <MappingFragment StoreEntitySet="user_master">
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="middle_name" ColumnName="middle_name" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="e_mail" ColumnName="e_mail" />
+                <ScalarProperty Name="phone_no" ColumnName="phone_no" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="district" ColumnName="district" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="pincode" ColumnName="pincode" />
+                <ScalarProperty Name="create_datetime" ColumnName="create_datetime" />
+                <ScalarProperty Name="update_datetime" ColumnName="update_datetime" />
+                <ScalarProperty Name="is_active" ColumnName="is_active" />
+                <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+                <ScalarProperty Name="user_type" ColumnName="user_type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

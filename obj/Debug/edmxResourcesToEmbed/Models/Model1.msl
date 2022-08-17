@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="canteen_manege_systemModelStoreContainer" CdmEntityContainer="canteen_manege_systemEntities13">
+    <EntitySetMapping Name="chef_collect_order_master">
+      <EntityTypeMapping TypeName="canteen_manege_systemModel.chef_collect_order_master">
+        <MappingFragment StoreEntitySet="chef_collect_order_master">
+          <ScalarProperty Name="chef_collect_order_id" ColumnName="chef_collect_order_id" />
+          <ScalarProperty Name="Order_assign_id" ColumnName="Order_assign_id" />
+          <ScalarProperty Name="is_start" ColumnName="is_start" />
+          <ScalarProperty Name="is_done" ColumnName="is_done" />
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+          <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+          <ScalarProperty Name="create_datetime" ColumnName="create_datetime" />
+          <ScalarProperty Name="update_datetime" ColumnName="update_datetime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="feedback_master">
+      <EntityTypeMapping TypeName="canteen_manege_systemModel.feedback_master">
+        <MappingFragment StoreEntitySet="feedback_master">
+          <ScalarProperty Name="feedback_id" ColumnName="feedback_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="feedback" ColumnName="feedback" />
+          <ScalarProperty Name="create_datetime" ColumnName="create_datetime" />
+          <ScalarProperty Name="update_datetime" ColumnName="update_datetime" />
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+          <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="food_category_master">
+      <EntityTypeMapping TypeName="canteen_manege_systemModel.food_category_master">
+        <MappingFragment StoreEntitySet="food_category_master">
+          <ScalarProperty Name="food_cat_id" ColumnName="food_cat_id" />
+          <ScalarProperty Name="food_cat_name" ColumnName="food_cat_name" />
+          <ScalarProperty Name="create_datetime" ColumnName="create_datetime" />
+          <ScalarProperty Name="update_datetime" ColumnName="update_datetime" />
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+          <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="food_item_master">
+      <EntityTypeMapping TypeName="canteen_manege_systemModel.food_item_master">
+        <MappingFragment StoreEntitySet="food_item_master">
+          <ScalarProperty Name="food_item_id" ColumnName="food_item_id" />
+          <ScalarProperty Name="food_cat__id" ColumnName="food_cat__id" />
+          <ScalarProperty Name="item_name" ColumnName="item_name" />
+          <ScalarProperty Name="item_description" ColumnName="item_description" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="create_datetime" ColumnName="create_datetime" />
+          <ScalarProperty Name="update_datetime" ColumnName="update_datetime" />
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+          <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="order_assign_master">
+      <EntityTypeMapping TypeName="canteen_manege_systemModel.order_assign_master">
+        <MappingFragment StoreEntitySet="order_assign_master">
+          <ScalarProperty Name="Order_assign_id" ColumnName="Order_assign_id" />
+          <ScalarProperty Name="order_master_id" ColumnName="order_master_id" />
+          <ScalarProperty Name="speciality_id" ColumnName="speciality_id" />
+          <ScalarProperty Name="cheif_type" ColumnName="cheif_type" />
+          <ScalarProperty Name="reject_msg" ColumnName="reject_msg" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="order_item">
+      <EntityTypeMapping TypeName="canteen_manege_systemModel.order_item">
+        <MappingFragment StoreEntitySet="order_item">
+          <ScalarProperty Name="order_item_id" ColumnName="order_item_id" />
+          <ScalarProperty Name="order_master_id" ColumnName="order_master_id" />
+          <ScalarProperty Name="food_item_id" ColumnName="food_item_id" />
+          <ScalarProperty Name="total_price" ColumnName="total_price" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="create_datetime" ColumnName="create_datetime" />
+          <ScalarProperty Name="update_datetime" ColumnName="update_datetime" />
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+          <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="order_master">
+      <EntityTypeMapping TypeName="canteen_manege_systemModel.order_master">
+        <MappingFragment StoreEntitySet="order_master">
+          <ScalarProperty Name="order_master_id" ColumnName="order_master_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="food_item_id" ColumnName="food_item_id" />
+          <ScalarProperty Name="total_price" ColumnName="total_price" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="order_deliverytime" ColumnName="order_deliverytime" />
+          <ScalarProperty Name="order_date" ColumnName="order_date" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="create_time" ColumnName="create_time" />
+          <ScalarProperty Name="update_datetime" ColumnName="update_datetime" />
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+          <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="payment_master">
+      <EntityTypeMapping TypeName="canteen_manege_systemModel.payment_master">
+        <MappingFragment StoreEntitySet="payment_master">
+          <ScalarProperty Name="payment_id" ColumnName="payment_id" />
+          <ScalarProperty Name="order_master_id" ColumnName="order_master_id" />
+          <ScalarProperty Name="payment_mode" ColumnName="payment_mode" />
+          <ScalarProperty Name="create_datetime" ColumnName="create_datetime" />
+          <ScalarProperty Name="update_datetime" ColumnName="update_datetime" />
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+          <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rating_master">
+      <EntityTypeMapping TypeName="canteen_manege_systemModel.rating_master">
+        <MappingFragment StoreEntitySet="rating_master">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="rating_id" ColumnName="rating_id" />
+          <ScalarProperty Name="food_item_id" ColumnName="food_item_id" />
+          <ScalarProperty Name="rating" ColumnName="rating" />
+          <ScalarProperty Name="create_datetime" ColumnName="create_datetime" />
+          <ScalarProperty Name="update_datetime" ColumnName="update_datetime" />
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+          <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="speciality_master">
+      <EntityTypeMapping TypeName="canteen_manege_systemModel.speciality_master">
+        <MappingFragment StoreEntitySet="speciality_master">
+          <ScalarProperty Name="speciality_id" ColumnName="speciality_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="food_cat_id" ColumnName="food_cat_id" />
+          <ScalarProperty Name="qualification" ColumnName="qualification" />
+          <ScalarProperty Name="experience" ColumnName="experience" />
+          <ScalarProperty Name="is_approed" ColumnName="is_approed" />
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+          <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user_master">
+      <EntityTypeMapping TypeName="canteen_manege_systemModel.user_master">
+        <MappingFragment StoreEntitySet="user_master">
+          <ScalarProperty Name="ResetaPasswordCode" ColumnName="ResetaPasswordCode" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="middle_name" ColumnName="middle_name" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="e_mail" ColumnName="e_mail" />
+          <ScalarProperty Name="phone_no" ColumnName="phone_no" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="district" ColumnName="district" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="pincode" ColumnName="pincode" />
+          <ScalarProperty Name="create_datetime" ColumnName="create_datetime" />
+          <ScalarProperty Name="update_datetime" ColumnName="update_datetime" />
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+          <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+          <ScalarProperty Name="user_type" ColumnName="user_type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

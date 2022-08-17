@@ -1,0 +1,161 @@
+﻿
+
+
+@model canteen_management_system.Models.order_master
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+
+
+@using (Html.BeginForm("provide_datetime","ShoppingCart",FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <hr />
+        @*   @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @*<div class="form-group">
+                        @Html.LabelFor(model => model.user_id, "user name", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            <input type="text" value="@Session["first_name"]" id="myHiddenVar" />
+                            @Html.DropDownList("user_id", new SelectList(ViewBag.name,null, null))
+                            @Html.DisplayFor(model=>model.user_master.first_name)
+                            @Html.DropDownList("user_id", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.user_id, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.food_item_id, "food_item_id", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("food_item_id", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.food_item_id, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.quantity, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.quantity, new { htmlAttributes = new { @class = "form-control" } })
+
+                    <input type="hidden" name="mode" value="PinRequest" />
+                    <label class="w3-text-green"><b>Number Of Pin</b></label>
+                    <select name="tot_pin_requested" onchange="calculateAmount(this.value)" required>
+                        <option value="" disabled selected>Choose your option</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                    <label><b>Total Amount</b></label>
+                    <input class="w3-input w3-border" name="tot_amount" id="tot_amount" type="text" readonly>
+                    <script>
+                        function calculateAmount(val) {
+                            var tot_price = val * food_item_master.amount;
+                            /*display the result*/
+                            var divobj = document.getElementById('tot_amount');
+                            divobj.value = tot_price;
+                        }
+                    </script>
+
+                    @Html.ValidationMessageFor(model => model.quantity, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.order_deliverytime,"Order Deliverytime", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.order_deliverytime, new { htmlAttributes = new { @class = "form-control" } })*@
+                <input type="time" class="form-control text-box single-line" data-val="true" data-val-required="The order_deliverytime field is required." id="order_deliverytime" name="order_deliverytime" value="">
+                @Html.ValidationMessageFor(model => model.order_deliverytime, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.order_date,"Order Date", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.order_date, new { htmlAttributes = new { @class = "form-control" } })*@
+                <input type="date" class="form-control text-box single-line" data-val="true" data-val-date="The field order_date must be a date." id="order_date" name="order_date" value="">
+                @Html.ValidationMessageFor(model => model.order_date, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+     
+
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.total_price, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.food_item_master.amount*order_master.quantity, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.total_price, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.create_datetime, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.create_datetime, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.create_datetime, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.update_datetime, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.update_datetime, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.update_datetime, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.is_active, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.is_active)
+                        @Html.ValidationMessageFor(model => model.is_active, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.is_delete, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.is_delete)
+                        @Html.ValidationMessageFor(model => model.is_delete, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.total_price, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.total_price, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.total_price, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        *@
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Order" class="btn btn-success" />
+                @Html.ActionLink("Back to List", "Homeindex","Home", null, new { @class = "btn btn-warning btn-xs" })
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+
+</div>
+

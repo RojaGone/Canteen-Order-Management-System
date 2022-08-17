@@ -1,0 +1,70 @@
+﻿@model IEnumerable<canteen_management_system.Models.speciality_master>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.qualification)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.experience)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.is_approed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.is_active)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.is_delete)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.food_category_master.food_cat_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.user_master.first_name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.qualification)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.experience)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.is_approed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.is_active)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.is_delete)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.food_category_master.food_cat_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.user_master.first_name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.speciality_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.speciality_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.speciality_id })
+        </td>
+    </tr>
+}
+
+</table>

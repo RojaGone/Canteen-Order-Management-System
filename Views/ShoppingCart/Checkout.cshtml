@@ -1,0 +1,270 @@
+﻿@model canteen_management_system.Models.CanteenModel
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+    <html lang="en">
+    <head>
+        <title>Login V8</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+        <!--===============================================================================================-->
+        <link rel="icon" type="image/png" href="~/Login/images/icons/favicon.ico" />
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="~/Login/vendor/bootstrap/css/bootstrap.min.css">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="~/Login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="~/Login/vendor/animate/animate.css">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="~/Login/vendor/css-hamburgers/hamburgers.min.css">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="~/Login/vendor/animsition/css/animsition.min.css">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="~/Login/vendor/select2/select2.min.css">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="~/Login/vendor/daterangepicker/daterangepicker.css">
+        <!--===============================================================================================-->
+        <link rel="stylesheet" type="text/css" href="~/Login/css/util.css">
+        <link rel="stylesheet" type="text/css" href="~/Login/css/main.css">
+        <!--===============================================================================================-->
+    </head>
+    <body>
+
+        <div class="limiter">
+            <div class="container-login100">
+                <div class="wrap-login100">
+                    <form action="Saveorder" method="post" class="login100-form validate-form p-l-55 p-r-55 p-t-178">
+                        <span class="login100-form-title">
+                            Sign In
+                        </span>
+                        <div>
+                            @ViewBag.text
+                        </div>
+                        <style type="text/css">
+                            .blueText {
+                                color: #FF0000;
+                            }
+                        </style>
+
+                        <p class="text-primary text-strong">
+                            <span class="blueText">@Session["error"]</span>
+                        </p>
+                      
+                        <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter firstname">
+                            @Html.EditorFor(model => model.first_name, new { htmlAttributes = new { @class = "input100", @name = "first_name", @placeholder = "First name" } })
+                            @Html.ValidationMessageFor(model => model.first_name, "", new { @class = "text-danger" })
+
+                            <span class="focus-input100"></span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter middlename">
+                            @Html.EditorFor(model => model.middle_name, new { htmlAttributes = new { @class = "input100", @name = "middle_name", @placeholder = "Middle name" } })
+                            @Html.ValidationMessageFor(model => model.middle_name, "", new { @class = "text-danger" })
+                            <span class="focus-input100"></span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter lastname">
+                            @Html.EditorFor(model => model.last_name, new { htmlAttributes = new { @class = "input100", @name = "last_name", @placeholder = "Laste name" } })
+                            @Html.ValidationMessageFor(model => model.last_name, "", new { @class = "text-danger" })
+                            <span class="focus-input100"></span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter password">
+                            @Html.EditorFor(model => model.e_mail, new { htmlAttributes = new { @class = "input100", @type = "email", @placeholder = "example@gmail.com" } })
+                            @Html.ValidationMessageFor(model => model.e_mail, "", new { @class = "text-danger" })
+                            <span class="focus-input100"></span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter phone number">
+                            @Html.EditorFor(model => model.phone_no, new { htmlAttributes = new { @class = "input100", @name = "phone_no", @placeholder = "Mobile number" } })
+                            @Html.ValidationMessageFor(model => model.phone_no, "", new { @class = "text-danger" })
+                            <span class="focus-input100"></span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter username">
+                            @Html.EditorFor(model => model.user_name, new { htmlAttributes = new { @class = "input100", @name = "user_name", @placeholder = "Username" } })
+                            @Html.ValidationMessageFor(model => model.user_name, "", new { @class = "text-danger" })
+                            <span class="focus-input100"></span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter password">
+                            @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "input100", @type = "password", @placeholder = "Password" } })
+                            @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                            <span class="focus-input100"></span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter address">
+                            @Html.EditorFor(model => model.address, new { htmlAttributes = new { @class = "input100", @name = "address", @placeholder = "Address" } })
+                            @Html.ValidationMessageFor(model => model.address, "", new { @class = "text-danger" })
+                            <span class="focus-input100"></span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter city">
+                            @Html.EditorFor(model => model.city, new { htmlAttributes = new { @class = "input100", @name = "city", @placeholder = "City" } })
+                            @Html.ValidationMessageFor(model => model.city, "", new { @class = "text-danger" })
+                            <span class="focus-input100"></span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter district">
+                            @Html.EditorFor(model => model.district, new { htmlAttributes = new { @class = "input100", @name = "district", @placeholder = "District" } })
+                            @Html.ValidationMessageFor(model => model.district, "", new { @class = "text-danger" })
+                            <span class="focus-input100"></span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter state">
+                            @Html.EditorFor(model => model.state, new { htmlAttributes = new { @class = "input100", @name = "state", @placeholder = "State" } })
+                            @Html.ValidationMessageFor(model => model.state, "", new { @class = "text-danger" })
+                            <span class="focus-input100"></span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter country">
+                            @Html.EditorFor(model => model.country, new { htmlAttributes = new { @class = "input100", @name = "country", @placeholder = "Country" } })
+                            @Html.ValidationMessageFor(model => model.country, "", new { @class = "text-danger" })
+                            <span class="focus-input100"></span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter pincode">
+                            @Html.EditorFor(model => model.pincode, new { htmlAttributes = new { @class = "input100", @name = "pincode", @placeholder = "Pincode" } })
+                            @Html.ValidationMessageFor(model => model.pincode, "", new { @class = "text-danger" })
+
+                            <span class="focus-input100"></span>
+                        </div>
+
+                        @*<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter pincode">
+            @Html.EditorFor(model => model., new { htmlAttributes = new { @class = "input100", @name = "pincode", @placeholder = "pincode" } })
+            @Html.ValidationMessageFor(model => model.order_date, "", new { @class = "text-danger" })
+
+            <span class="focus-input100"></span>
+        </div>*@
+                        @*<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter date and time">
+                                @Html.EditorFor(model => model.create_datetime, new { @value=DateTime.Today, @readonly="readonly",htmlAttributes = new { @class = "input100", @placeholder = "creat-datetime" } })
+                                @Html.ValidationMessageFor(model => model.create_datetime, "", new { @class = "text-danger" })
+                                <span class="focus-input100"></span>
+                            </div>
+
+                            <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter date and time">
+                                @Html.EditorFor(model => model.update_datetime, new { htmlAttributes = new { @class = "input100", @placeholder = "update-datetime" } })
+                                @Html.ValidationMessageFor(model => model.update_datetime, "", new { @class = "text-danger" })
+                                <span class="focus-input100"></span>
+                            </div>
+
+                            <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter username">
+                                <label>
+                                    Active
+                                    @Html.EditorFor(model => model.is_active, new { htmlAttributes = new { @class = "", @placeholder = "is_deletesadasfda" } })</label>
+                                    @Html.ValidationMessageFor(model => model.is_active, "", new { @class = "text-danger" })
+                                    <span class="focus-input100"></span>
+        </div>
+
+                            <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter username">
+                                <input class="checkbox" placeholder="Is delete">
+                                @Html.EditorFor(model => model.is_delete, new { htmlAttributes = new { @class = "", @placeholder = "is_deletesadasfda" } })
+                                @Html.ValidationMessageFor(model => model.is_delete, "", new { @class = "text-danger" })
+                                <span class="focus-input100"></span>
+                            </div>
+                        *@
+
+
+                        <div class="wrap-input100 validate-input m-b-16" data-validate="Please select user type">
+
+                            @Html.DropDownList("user_type", new List<SelectListItem>
+                 { new SelectListItem { Text = "Customer", Value = "1"},
+
+                   }, new { @class = "input100 list-box tri-state", @placeholder = "Choose user type" })
+                            @Html.ValidationMessageFor(model => model.user_type, "", new { @class = "text-danger" })
+                            <span class="focus-input100"></span>
+                        </div>
+
+
+
+
+
+                        <div class="container-login100-form-btn">
+                            <button class="login100-form-btn">
+                                <span class="focus-input100"></span>
+                                Sign in
+                            </button>
+                        </div>
+                        <br />
+                        <div class="container-login100-form-btn">
+                            <div class="login100-form-btn">
+                                @Html.ActionLink("Back to List", "Menu", "food_item_master")
+                                <span class="focus-input100"></span>
+                            </div>
+                        </div>
+
+                        <div class="flex-col-c p-t-170 p-b-40">
+                            <span class="txt1 p-b-9">
+                                Don’t have an account?
+                            </span>
+
+                            <a href="#" class="txt3">
+                                Sign up now
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        <!--===============================================================================================-->
+        <script src="~/Login/vendor/jquery/jquery-3.2.1.min.js"></script>
+
+        <!--===============================================================================================-->
+        <script src="~/Login/vendor/animsition/js/animsition.min.js"></script>
+        <!--===============================================================================================-->
+        <script src="~/Login/vendor/bootstrap/js/popper.js"></script>
+        <script src="~/Login/vendor/bootstrap/js/bootstrap.min.js"></script>
+        <!--===============================================================================================-->
+        <script src="~/Login/vendor/select2/select2.min.js"></script>
+        <!--===============================================================================================-->
+        <script src="~/Login/vendor/daterangepicker/moment.min.js"></script>
+        <script src="~/Login/vendor/daterangepicker/daterangepicker.js"></script>
+        <!--===============================================================================================-->
+        <script src="~/Login/vendor/countdowntime/countdowntime.js"></script>
+        <!--===============================================================================================-->
+        <script src="~/Login/js/main.js"></script>
+
+    </body>
+    </html>
+@*
+<html>
+<head>
+
+</head>
+<body>
+    <fieldset>
+        @using (Html.BeginForm("Saveorder", "ShoppingCart", FormMethod.Post))
+        {
+            <table cellpadding="2" cellspacing="2">
+                <tr>
+                    <td>firstname</td>
+                    <td><input type="text" name="first_name" /></td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td><input type="text" name="address" /></td>
+                </tr>
+                <tr>
+                    <td>username</td>
+                    <td><input type="text" name="user_name" /></td>
+                </tr>
+                <tr>
+                    <td>password</td>
+                    <td><input type="text" name="password" /></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td><input type="submit" value="Submit" /></td>
+                </tr>
+            </table>
+        }
+    </fieldset>
+</body>
+</html>*@

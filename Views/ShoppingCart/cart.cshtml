@@ -1,0 +1,96 @@
+﻿
+@{
+    ViewBag.Title = "View";
+    if (Session["user_id"] == null)
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout1.cshtml";
+    }
+
+}
+@using canteen_management_system.Controllers
+
+
+<html>
+<head>
+</head>
+<body>
+    @using (Html.BeginForm("Update", "ShoppingCart", FormMethod.Post))
+    {
+        <table cellpadding="2" cellspacing="2" border="1" class="table">
+            <tr>
+                <th>
+                    food category name
+                </th>
+
+                <th>Name</th>
+                <th>descroption</th>
+                <th>price</th>
+                <th>Available Item Quantity</th>
+                <th>discount</th>
+                <th>image</th>
+                <th>Order quantity<input type="submit" value="Update" /></th>
+                <th>sub total</th>
+                <th>Option</th>
+            </tr>
+            @{
+                decimal s = 0;
+                int index = 1;
+            }
+
+            @foreach (Item item in (List<Item>)Session["cart"])
+            {
+                s = s + Convert.ToInt32(item.Food_Item_Masters.amount) * item.Quantity - Convert.ToInt32(item.Food_Item_Masters.amount * item.Quantity * item.Food_Item_Masters.discount / 100);
+                <tr>
+                    <td>@item.Food_Item_Masters.food_category_master.food_cat_name</td>
+                    <td>@item.Food_Item_Masters.item_name</td>
+                    <td>@item.Food_Item_Masters.item_description</td>
+                    <td>@item.Food_Item_Masters.amount</td>
+                    <td>@item.Food_Item_Masters.quantity</td>
+                    <td>@item.Food_Item_Masters.discount</td>
+                    <td> <img src="@Url.Content(item.Food_Item_Masters.image)" height="100" width="100" /></td>
+                    <td><input type="text" name="quantity" value="@item.Quantity" /></td>
+                    <td>
+
+                        @(item.Food_Item_Masters.amount * item.Quantity - (item.Food_Item_Masters.amount * item.Quantity * item.Food_Item_Masters.discount / 100))
+                    </td>
+                    <td>
+                        <h2>
+                            @Html.ActionLink("Delete", "Delete", "ShoppingCart", new { id = item.Food_Item_Masters.food_item_id }, new { @class = "badge badge-danger" })
+                        </h2>
+                    </td>
+
+                </tr>
+            }
+            <tr>
+                <td align="right" colspan="8">Total</td>
+                <td>@s</td>
+            </tr>
+        </table>
+    }
+</body>
+</html>
+<br />
+<br />
+
+@*@Html.ActionLink("Order", "sample", "ShoppingCart")*@
+<br />
+@if (Session["user_id"] == null)
+{
+    <div>
+        @Html.ActionLink("Continue Shopping", "Menu", "food_item_master", null, new { @class = "btn btn-warning btn-xs" })
+
+        &nbsp;&nbsp;&nbsp; @Html.ActionLink("Order", "Checkout", "ShoppingCart", new { @class = "btn btn-success btn-xs" })
+    </div>
+}
+else
+{
+<div>
+    @Html.ActionLink("Continue Shopping", "Menu", "food_item_master", null, new { @class = "btn btn-warning btn-xs" })
+    &nbsp;&nbsp;&nbsp;@Html.ActionLink("Order", "sample", "ShoppingCart", new { @class = "btn btn-success btn-xs" })
+</div>
+        }
+

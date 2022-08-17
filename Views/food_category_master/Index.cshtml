@@ -1,0 +1,229 @@
+﻿@model IEnumerable<canteen_management_system.Models.Class1>
+
+
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Free Bootstrap Admin Template : Binary Admin</title>
+    <!-- BOOTSTRAP STYLES-->
+    <link href="~/assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONTAWESOME STYLES-->
+    <link href="~/assets/css/font-awesome.css" rel="stylesheet" />
+    <!-- CUSTOM STYLES-->
+    <link href="~/assets/css/custom.css" rel="stylesheet" />
+    <!-- GOOGLE FONTS-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <style>
+        .navbar {
+            min-height: unset !important;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a style="height:100%; font-size: 20px;" class="navbar-brand" href="index.html"><i class="fa fa-laptop"></i>&nbsp;Manager</a>
+            </div>
+            <div style="color: white; padding: 15px 50px 5px 50px; float: right; font-size: 16px;">
+                &nbsp; <a href="@Url.Action("logout","login")" class="btn btn-danger square-btn-adjust btn-xs">Logout&nbsp;<i class="fa fa-sign-out"></i></a>
+                @if (Session["user_name"] != null)
+                {
+                    @Html.ActionLink("hiiii  " + Session["first_name"], null, null, null, null)
+                }
+            </div>
+        </nav>
+        <!-- /. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <style>
+                .sidebar-collapse > .nav > li > a {
+                    display: flex; 
+                    align-items: center;
+                    padding: 12px 10px;
+                }
+                .sidebar-collapse > .nav > li > a > i {
+                    margin: 0 10px;
+                    width: 30px;
+                    text-align: center;
+                }
+                .sidebar-collapse > .nav > li > a > span {
+                    position: absolute;
+                    right: 10px;
+                }
+            </style>
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+                    <li class="text-center">
+                        <img style="width: 75px; margin: 10px auto;" src="~/assets/img/find_user.png" class="user-image img-responsive" />
+                    </li>
+
+                    <li>
+                        <a href="@Url.Action("Index","food_category_master")"><i class="fa fa-list-ul fa-2x"></i> Food Category<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="@Url.Action("Create","food_category_master")">Add Category</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index","food_category_master")">Delete Category</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index","food_category_master")">Details Category</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index","food_category_master")">Edit Category</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="@Url.Action("index","food_item_master")"><i class="fa fa-dot-circle-o fa-2x"></i> Food Item <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="@Url.Action("Create","food_item_master")">Add Item</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index","food_item_master")">Delete Item</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index","food_item_master")">Details Item</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index","food_item_master")">Edit Item</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="@Url.Action("Index","user_master")"><i class="fa fa-file-text-o fa-2x"></i> View All Deatails</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","payment_master")"><i class="fa fa-inr fa-2x"></i> View Payment Details</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","feedback_master")"><i class="fa fa-smile-o fa-2x"></i> View feedback</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","rating_master")"><i class="fa fa-dashboard fa-2x"></i> View Ratings</a>
+                    </li>
+                   
+                    <li>
+                        <a href="@Url.Action("Index","order_master")"><i class="fa fa-calendar fa-2x"></i>View Today Orders</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","order_assign_master")"><i class="fa fa-share-square-o fa-2x"></i> Order Assign </a>
+                    </li>
+
+
+                </ul>
+
+            </div>
+
+        </nav>
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper">
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                        <table class="table">
+                            <tr>
+
+                                <th>
+                                    Food Category Name
+                                </th>
+                                <th>
+                                    Create DateTime
+                                </th>
+                                <th>
+                                    Update DateTime
+                                </th>
+                                <th>
+                                    Active
+                                </th>
+                                <th>
+                                    Delete
+                                </th>
+                                <th></th>
+                            </tr>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.food_cat_name)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.create_datetime)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.update_datetime)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.is_active)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.is_delete)
+                                    </td>
+                                    <td>
+                                        <div>
+                                            @*@Html.ActionLink("Edit", "Edit", new { id = item.food_cat_id }, new { @class = "btn btn-info btn-xs" })
+                                            @Html.ActionLink("Details", "Details", new { id = item.food_cat_id }, new { @class = "btn btn-success btn-xs" })
+                                            @Html.ActionLink("Delete", "Delete", new { id = item.food_cat_id }, new { @class = "btn btn-danger btn-xs" })*@
+                                            <a class="btn btn-info btn-xs" href="@Url.Action("Edit", new { id = item.food_cat_id })"><i class="fa fa-pencil-square-o"></i>&nbsp;Edit</a>
+                                            <a class="btn btn-success btn-xs" href="@Url.Action("Details", new { id = item.food_cat_id })"><i class="fa fa-file-text-o"></i>&nbsp;Details</a>
+                                            <a class="btn btn-danger btn-xs" href="@Url.Action("Delete", new { id = item.food_cat_id })"><i class="fa fa-trash-o"></i>&nbsp;Delete</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+
+                        </table>
+                        <div>
+                            @*@Html.ActionLink("Back to List", "Index", "Admin", null, new { @class = "btn btn-warning btn-xs" })*@
+                            @*@Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary btn-xs" })*@
+                            <a class="btn btn-success btn-xs" href="@Url.Action("Create", "food_category_master" ,null)"><i class="fa fa-plus"></i>&nbsp;Create New</a>
+                        </div>
+
+
+                    </div>
+                </div>
+                <!-- /. ROW  -->
+                <hr />
+
+            </div>
+            <!-- /. PAGE INNER  -->
+        </div>
+        <!-- /. PAGE WRAPPER  -->
+    </div>
+    <!-- /. WRAPPER  -->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="~/assets/js/jquery-1.10.2.js"></script>
+    <!-- BOOTSTRAP SCRIPTS -->
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script src="~/assets/js/jquery.metisMenu.js"></script>
+    <!-- CUSTOM SCRIPTS -->
+    <script src="~/assets/js/custom.js"></script>
+
+
+</body>
+</html>
+
+
+
+
+

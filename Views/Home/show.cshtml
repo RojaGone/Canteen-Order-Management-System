@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "show";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+@{ 
+    Session.Remove("error");
+}
+<h2>Customer Registration successful</h2>
+<div>
+    @Html.ActionLink("Back to List", "Homeindex", "Home")
+</div>
+

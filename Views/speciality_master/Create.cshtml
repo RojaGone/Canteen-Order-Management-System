@@ -1,0 +1,189 @@
+﻿@model canteen_management_system.Models.speciality_master
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>Login V8</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/Login/images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Login/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Login/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Login/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Login/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Login/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Login/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Login/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/Login/css/main.css">
+    <!--===============================================================================================-->
+</head>
+<body>
+
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <form action="Create" controller="speciality_master" method="post" class="login100-form validate-form p-l-55 p-r-55 p-t-178">
+                    <span class="login100-form-title">
+                        Sign In
+                    </span>
+                    <div>
+                        @ViewBag.text
+                    </div>
+                    @{
+                        Session.Remove("error");
+                    }
+                    @using (Html.BeginForm("Create", "speciality_master", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-horizontal">
+
+
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @*<div class="form-group">
+                    @Html.LabelFor(model => model.user_id, "Chef_name", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("user_id", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.user_id, "", new { @class = "text-danger" })
+                    </div>
+                </div>*@
+
+
+                            <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter Choose Speciality">
+
+                                @*<select class="input100 list-box tri-state" id="food_cat_id" name="food_cat_id" placeholder="choose speciality">*@
+                                <b>
+
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- - - - - - - - - - - - Choose Speciality  - - - - - - - - - - - -@Html.DropDownList("food_cat_id", null, new { @class = "input100 list-box tri-state", @placeholder = "Choose Speciality" })
+
+                                </b>
+                                @Html.ValidationMessageFor(model => model.food_cat_id, "", new { @class = "text-danger" })
+
+                                <span class="focus-input100"></span>
+
+                            </div>
+
+                            <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter Qualification">
+
+                                @Html.EditorFor(model => model.qualification, new { htmlAttributes = new { @class = "input100", @placeholder = "Qualification" } })
+                                @Html.ValidationMessageFor(model => model.qualification, "", new { @class = "text-danger" })
+
+                                <span class="focus-input100"></span>
+                            </div>
+
+                            <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter Experience">
+
+                                @Html.EditorFor(model => model.experience, new { htmlAttributes = new { @class = "input100", @placeholder = "Experience" } })
+                                @Html.ValidationMessageFor(model => model.experience, "", new { @class = "text-danger" })
+
+                                <span class="focus-input100"></span>
+                            </div>
+
+                            <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter Approve">
+
+                                <br />
+                                <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Approve &nbsp; &nbsp;  &nbsp;@Html.EditorFor(model => model.is_approed, new { @class = "input100", @placeholder = "is_active" })<br /></b>
+                                @Html.ValidationMessageFor(model => model.is_approed, "", new { @class = "text-danger" })
+                                <label for="username"></label>
+
+                                <span class="focus-input100"></span>
+                            </div>
+
+                            @*<div class="wrap-input100 validate-input m-b-16" data-validate="Please enter is_active ">
+
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.is_active, new { htmlAttributes = new { @class = "input100", @placeholder = "is_active" } })
+                        @Html.ValidationMessageFor(model => model.is_active, "", new { @class = "text-danger" })
+                    </div>
+
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter is_delete ">
+
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.is_delete, new { htmlAttributes = new { @class = "input100", @placeholder = "is_delete" } })
+                        @Html.ValidationMessageFor(model => model.is_delete, "", new { @class = "text-danger" })
+                    </div>
+
+                    <span class="focus-input100"></span>
+                </div>*@
+
+                            <div class="form-group">
+                                <div class="container-login100-form-btn">
+                                    <span class="focus-input100"></span>
+                                    <input type="submit" value=" Sign in" class="login100-form-btn" />
+
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    }
+                    @*<div class="container-login100-form-btn">
+            <button class="login100-form-btn">
+                <span class="focus-input100"></span>
+                Sign in
+            </button>
+        </div>*@
+
+
+                    <div class="container-login100-form-btn">
+                        <div class="login100-form-btn">
+                            @Html.ActionLink("Back to List", "Create", "Canteen")
+                            <span class="focus-input100"></span>
+                        </div>
+                    </div>
+
+                    <div class="flex-col-c p-t-170 p-b-40">
+                        <span class="txt1 p-b-9">
+                            Don’t have an account?
+                        </span>
+
+                        <a href="#" class="txt3">
+                            Sign up now
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!--===============================================================================================-->
+    <script src="~/Login/vendor/jquery/jquery-3.2.1.min.js"></script>
+
+    <!--===============================================================================================-->
+    <script src="~/Login/vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Login/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/Login/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Login/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Login/vendor/daterangepicker/moment.min.js"></script>
+    <script src="~/Login/vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Login/vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Login/js/main.js"></script>
+
+</body>
+</html>

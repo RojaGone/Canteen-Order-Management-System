@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="469fd403b89e4f9ca5e50a2ae051cfcd" Name="Diagram1">
+        <EntityTypeShape EntityType="canteen_manege_systemModel2.chef_collect_order_master" Width="1.5" PointX="10.5" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="canteen_manege_systemModel2.feedback_master" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="canteen_manege_systemModel2.food_category_master" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="canteen_manege_systemModel2.food_item_master" Width="1.5" PointX="3.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="canteen_manege_systemModel2.order_assign_master" Width="1.5" PointX="8.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="canteen_manege_systemModel2.order_item" Width="1.5" PointX="8.25" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="canteen_manege_systemModel2.order_master" Width="1.5" PointX="6" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="canteen_manege_systemModel2.payment_master" Width="1.5" PointX="8.25" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="canteen_manege_systemModel2.rating_master" Width="1.5" PointX="6" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="canteen_manege_systemModel2.speciality_master" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="canteen_manege_systemModel2.user_master" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <AssociationConnector Association="canteen_manege_systemModel2.FK_chef_collect_order_master_order_assign_master" ManuallyRouted="false" />
+        <AssociationConnector Association="canteen_manege_systemModel2.FK_feedback_master_user_master" ManuallyRouted="false" />
+        <AssociationConnector Association="canteen_manege_systemModel2.FK_food_item_master_food_category_master" ManuallyRouted="false" />
+        <AssociationConnector Association="canteen_manege_systemModel2.FK_speciality_master_food_category_master" ManuallyRouted="false" />
+        <AssociationConnector Association="canteen_manege_systemModel2.FK_order_item_food_item_master" ManuallyRouted="false" />
+        <AssociationConnector Association="canteen_manege_systemModel2.FK_order_master_food_item_master" ManuallyRouted="false" />
+        <AssociationConnector Association="canteen_manege_systemModel2.FK_rating_master_food_item_master" ManuallyRouted="false" />
+        <AssociationConnector Association="canteen_manege_systemModel2.FK_order_assign_master_order_assign_master" ManuallyRouted="false" />
+        <AssociationConnector Association="canteen_manege_systemModel2.FK_order_assign_master_order_master" ManuallyRouted="false" />
+        <AssociationConnector Association="canteen_manege_systemModel2.FK_order_item_order_master" ManuallyRouted="false" />
+        <AssociationConnector Association="canteen_manege_systemModel2.FK_order_master_user_master" ManuallyRouted="false" />
+        <AssociationConnector Association="canteen_manege_systemModel2.FK_payment_master_order_master" ManuallyRouted="false" />
+        <AssociationConnector Association="canteen_manege_systemModel2.FK_speciality_master_user_master" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,113 @@
+﻿
+@{
+    ViewBag.Title = "Ordernow";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Ordernow</h2>
+
+@model canteen_management_system.Models.food_item_master
+
+
+
+
+<div>
+    
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.item_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.item_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.item_description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.item_description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.amount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.amount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.discount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.discount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.image)
+        </dt>
+
+        <dd>
+            <img src="@Url.Content(Model.image)" width="200" height="200" />
+        </dd>
+
+        @*<dt>
+                @Html.DisplayNameFor(model => model.create_datetime)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.create_datetime)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.update_datetime)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.update_datetime)
+            </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.is_active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.is_active)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.is_delete)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.is_delete)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.food_category_master.food_cat_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.food_category_master.food_cat_name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <div class="form-actions no-color">
+        <input type="submit" value="Order Confirm" class="btn btn-danger" /> |
+        @Html.ActionLink("Back to List", "Search","food_item_master", null, new { @class = "btn btn-warning btn-xs" })
+    </div>
+
+</p>

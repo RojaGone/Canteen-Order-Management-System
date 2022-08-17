@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="canteen_manege_systemModelStoreContainer" CdmEntityContainer="canteen_manege_systemEntities6">
+    <EntitySetMapping Name="food_category_master">
+      <EntityTypeMapping TypeName="canteen_manege_systemModel.food_category_master">
+        <MappingFragment StoreEntitySet="food_category_master">
+          <ScalarProperty Name="food_cat_id" ColumnName="food_cat_id" />
+          <ScalarProperty Name="food_cat_name" ColumnName="food_cat_name" />
+          <ScalarProperty Name="create_datetime" ColumnName="create_datetime" />
+          <ScalarProperty Name="update_datetime" ColumnName="update_datetime" />
+          <ScalarProperty Name="is_active" ColumnName="is_active" />
+          <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

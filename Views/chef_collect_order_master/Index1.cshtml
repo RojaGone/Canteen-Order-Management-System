@@ -1,0 +1,91 @@
+﻿@model IEnumerable<canteen_management_system.Models.chef_collect_order_master>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+
+<table class="table">
+    <tr>
+        @*<th>
+                @Html.DisplayNameFor(model => model.order_assign_master.Order_assign_id)
+            </th>*@
+        <th>Cheif Name</th>
+        <th>Item name</th>
+        <th>Quantity</th>
+        <th>Item delivery time</th>
+        <th>Item delivery date</th>
+        <th>
+            Start
+        </th>
+        <th>
+            Done
+        </th>
+        <th>
+            Delete
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.is_active)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.create_datetime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.update_datetime)
+            </th>*@
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.order_assign_master.Order_assign_id)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.order_assign_master.reject_msg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.order_assign_master.order_master.food_item_master.item_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.order_assign_master.order_master.quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.order_assign_master.order_master.order_deliverytime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.order_assign_master.order_master.order_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.is_start)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.is_done)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.is_delete)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.is_active)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.create_datetime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.update_datetime)
+                </td>*@
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.chef_collect_order_id }, new { @class = "badge badge-success badge-xs" })
+                @Html.ActionLink("Reject", "Reject", new { id = item.chef_collect_order_id }, new { @class = "badge badge-danger badge-xs" })
+
+            </td>
+        </tr>
+    }
+
+</table>

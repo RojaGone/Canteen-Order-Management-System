@@ -1,0 +1,83 @@
+﻿@model canteen_management_system.Models.order_item
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>order_item</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.total_price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.total_price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.create_datetime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.create_datetime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.update_datetime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.update_datetime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.is_active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.is_active)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.is_delete)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.is_delete)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.food_item_master.item_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.food_item_master.item_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.order_master.order_master_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.order_master.order_master_id)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.order_item_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

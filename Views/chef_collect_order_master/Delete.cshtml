@@ -1,0 +1,81 @@
+﻿@model canteen_management_system.Models.chef_collect_order_master
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>chef_collect_order_master</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.is_start)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.is_start)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.is_done)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.is_done)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.is_active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.is_active)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.is_delete)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.is_delete)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.create_datetime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.create_datetime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.update_datetime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.update_datetime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.order_assign_master.Order_assign_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.order_assign_master.Order_assign_id)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

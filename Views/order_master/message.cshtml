@@ -1,0 +1,74 @@
+﻿@model IEnumerable<canteen_management_system.Models.order_master>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+<table class="table">
+    <tr>
+        <th>
+            Item Name
+        </th>
+        <th>
+            Quantity
+        </th>
+        <th>
+            Order Deliverytime
+        </th>
+        <th>
+            Order Date
+        </th>
+
+        <th>Amount</th>
+        <th>Discount</th>
+        <th>Total price</th>
+        <th>Status</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.food_item_master.item_name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.quantity)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.order_deliverytime)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.order_date)
+    </td>
+
+
+    <td>
+        @Html.DisplayFor(modelItem => item.food_item_master.amount)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.food_item_master.discount)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.total_price)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.status)
+    </td>
+
+    <td>
+        @*@Html.ActionLink("Details", "Details", new { id = item.order_master_id }, new { @class = "badge badge-primary" }) |*@
+
+    </td>
+</tr>
+    }
+
+</table>
+<div>
+    @Html.ActionLink("Back to List", "HomeLogin", "Home", null, new { @class = "btn btn-warning btn-xs" })
+</div>

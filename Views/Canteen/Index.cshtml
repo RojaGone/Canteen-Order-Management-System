@@ -1,0 +1,248 @@
+﻿
+
+@model IEnumerable<canteen_management_system.Models.user_master>
+
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Free Bootstrap Admin Template : Binary Admin</title>
+    <!-- BOOTSTRAP STYLES-->
+    <link href="~/assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONTAWESOME STYLES-->
+    <link href="~/assets/css/font-awesome.css" rel="stylesheet" />
+    <!-- CUSTOM STYLES-->
+    <link href="~/assets/css/custom.css" rel="stylesheet" />
+    <!-- GOOGLE FONTS-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <style>
+        .navbar {
+            min-height: unset !important;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Manager</a>
+            </div>
+            <div style="color: white;
+padding: 15px 50px 5px 50px;
+float: right;
+font-size: 16px;">
+                &nbsp; <a href="@Url.Action("logout","login")" class="btn btn-danger square-btn-adjust">Logout</a>
+                @if (Session["user_name"] != null)
+                {
+                    @Html.ActionLink("hiiii  " + Session["first_name"], null, null, null, null)
+                }
+            </div>
+        </nav>
+        <!-- /. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+                    <li class="text-center">
+                        <img src="~/assets/img/find_user.png" class="user-image img-responsive" />
+                    </li>
+
+                    <li>
+                        <a href="@Url.Action("Index","food_category_master")"><i class="fa fa-sitemap fa-3x"></i> Food Category<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="@Url.Action("Create","food_category_master")">Add Category</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index","food_category_master")">Delete Category</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index","food_category_master")">Details Category</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index","food_category_master")">Edit Category</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="@Url.Action("index","food_item_master")"><i class="fa fa-sitemap fa-3x"></i> Food Item <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="@Url.Action("Create","food_item_master")">Add Item</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index","food_item_master")">Delete Item</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index","food_item_master")">Details Item</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index","food_item_master")">Edit Item</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="@Url.Action("Index","Canteen")"><i class="fa fa-dashboard fa-3x"></i> View All Deatails</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","payment_master")"><i class="fa fa-dashboard fa-3x"></i> View Payment Details</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","feedback_master")"><i class="fa fa-dashboard fa-3x"></i> View feedback</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","rating_master")"><i class="fa fa-dashboard fa-3x"></i> View Ratings</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","order_master")"><i class="fa fa-dashboard fa-3x"></i>  View Today Orders</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","order_assign_master")"><i class="fa fa-dashboard fa-3x"></i> Order Assignment </a>
+                    </li>
+
+
+                </ul>
+
+            </div>
+
+        </nav>
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper">
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <table class="table table-bordered table-striped ">
+                            <tr>
+
+                                <th>First Name</th>
+                                <th>Middle Name</th>
+                                <th>Last Name</th>
+                                <th>E_mail</th>
+                                <th>Phone no</th>
+
+                                <th>Address</th>
+                                <th>City</th>
+                                <th>District</th>
+                                <th>State</th>
+                                <th>Country</th>
+                                <th>Pincode</th>
+                                <th>Create Datetime</th>
+                                <th>Update Datetime</th>
+                                @*<th>Active</th>
+                                <th>Delete</th>*@
+                                <th>User type</th>
+                                <th>Action</th>
+                            </tr>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.first_name)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.middle_name)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.last_name)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.e_mail)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.phone_no)
+                                    </td>
+                                    >
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.address)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.city)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.district)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.state)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.country)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.pincode)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.create_datetime)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.update_datetime)
+                                    </td>
+                                    @*<td>
+                                        @Html.DisplayFor(modelItem => item.is_active)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.is_delete)
+                                    </td>*@
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.user_type)
+                                    </td>
+                                    <td>
+
+                                        @Html.ActionLink("Details", "Details", new { id = item.user_id }, new { @class = "btn btn-success btn-xs" })
+                                        @*@Html.ActionLink("Edit", "Edit", new { id = item.user_id }, new { @class = "btn btn-info btn-xs" })*@ 
+                                    </td>
+                                </tr>
+                            }
+
+
+                        </table>
+                        @*<a href="@Url.Action("Create","Canteen")">Add User</a>*@
+                        <br />
+                        <br />
+                        <div>
+                            @Html.ActionLink("Back to List", "Index", "Admin", null, new { @class = "btn btn-warning btn-xs" })
+                        </div>
+
+                    </div>
+                </div>
+                <!-- /. ROW  -->
+                <hr />
+
+            </div>
+            <!-- /. PAGE INNER  -->
+        </div>
+        <!-- /. PAGE WRAPPER  -->
+    </div>
+    <!-- /. WRAPPER  -->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="~/assets/js/jquery-1.10.2.js"></script>
+    <!-- BOOTSTRAP SCRIPTS -->
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script src="~/assets/js/jquery.metisMenu.js"></script>
+    <!-- CUSTOM SCRIPTS -->
+    <script src="~/assets/js/custom.js"></script>
+
+
+</body>
+</html>
+
+
+
+
+
